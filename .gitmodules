@@ -1,0 +1,6 @@
+[submodule "submodules/ail"]
+	path = submodules/ail
+	url = https://github.com/AlexChesser/ail.git
+[submodule "submodules/swe-bench-pro"]
+	path = submodules/swe-bench-pro
+	url = https://github.com/AlexChesser/SWE-bench_Pro-os.git
