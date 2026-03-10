@@ -1,0 +1,18 @@
+services:
+  ail-benchmarks:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    env_file:
+      - ../.env
+    volumes:
+      - ..:/workspace                             # full repo mounted live
+      - /var/run/docker.sock:/var/run/docker.sock # DfD socket passthrough
+      - hf-cache:/root/.cache/huggingface         # persist HF dataset
+    working_dir: /workspace
+    command: sleep infinity
+
+volumes:
+  cargo-cache:
+  pip-cache:
+  hf-cache:
