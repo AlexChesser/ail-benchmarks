@@ -2,17 +2,7 @@
 pip install -e submodules/swe-bench-pro/mini-swe-agent
 
 # 2. Generate a CSV for one instance
-python3 -c "
-from datasets import load_dataset
-import csv, json
-
-ds = load_dataset('ScaleAI/SWE-bench_Pro', split='test')
-row = next(r for r in ds if r['instance_id'] == 'instance_ansible__ansible-8127abbc298cabf04aaa89a478fc5e5e3432a6fc-v30a923fb5c164d6cd18280c02422f75e611e8fb2')
-with open('/workspace/results/smoke_sample.csv', 'w') as f:
-    w = csv.DictWriter(f, fieldnames=row.keys())
-    w.writeheader()
-    w.writerow(row)
-print('CSV written')
+python3 make_dataset.py
 "
 
 # 3. Run mini-swe-agent on that instance

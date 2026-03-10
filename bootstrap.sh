@@ -8,5 +8,9 @@ docker compose -f docker/docker-compose.yml build \
 # Start the container in the background if not already running
 docker compose -f docker/docker-compose.yml up -d
 
+echo "=== Installing mini-swe-agent ==="
+docker compose -f docker/docker-compose.yml exec ail-benchmarks \
+  pip install -e submodules/swe-bench-pro/mini-swe-agent -q
+
 # Shell into it
 docker compose -f docker/docker-compose.yml exec ail-benchmarks bash
